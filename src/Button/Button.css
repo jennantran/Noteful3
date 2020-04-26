@@ -1,0 +1,38 @@
+.addNoteButton {
+    background-color: #cacaca;
+    border-radius: 30px;
+    border: 0;
+    color: black;
+    display: block;
+    font-size: 10px;
+    text-align: center;
+    font-weight: bold;
+    height: 30px;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    width: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+
+  }
+  .addFolderButton{
+    background-color: #cacaca;
+    border-radius: 30px;
+    border: 0;
+    color: black;
+    display: block;
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+    text-decoration: none;
+  }
+  
+  a.addFolderButton, a.addNoteButton {
+    padding: 16px 8px 8px;
+  }
+  
+  .addFolderButton:hover, .addNoteButton:hover{
+    cursor: pointer;
+  }
+ 

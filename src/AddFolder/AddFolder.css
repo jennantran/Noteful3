@@ -1,0 +1,47 @@
+.AddFolderForm{
+    background-color: #1d3656;
+  color: #dedede;
+  padding: 16px;
+  max-width: 332px;
+}
+
+
+.AddFolderForm label {
+    display: block;
+    font-size: 16px;
+    padding-bottom: 10px;
+  }
+
+.AddFolderForm input,
+.AddFolderForm  textarea,
+.AAddFolderForm  select {
+  font-size: 14px;
+  padding: 8px;
+  width: 320px;
+}
+
+#name{
+  width: 300px;
+}
+
+.AddFolderForm  select {
+    height: 33px;
+  }
+
+  .AddFolderForm [type="submit"]{
+    background-color: #010d1e;
+    border-radius: 4px;
+    border: 0;
+    color: #cacaca;
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+.AddFolderForm [type="submit"]:hover {
+    background-color: #29862e;
+    color: white;
+}

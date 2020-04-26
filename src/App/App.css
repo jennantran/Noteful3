@@ -1,0 +1,32 @@
+.App {
+  display: grid;
+  grid-template-areas: "sidebar header" "sidebar main";
+  grid-template-columns: 1fr 2.3fr;
+  grid-template-rows: 120px 1fr;
+}
+
+.appHeader {
+  grid-area: header;
+  padding: 15px;
+  color: #bdbdbd;
+  background-color: #0b1f3a;
+
+}
+
+.appHeader a {
+  color: #bdbdbd;
+}
+
+.navigation {
+  grid-area: sidebar;
+  height: 100vh;
+  background-color: #0b1b32;
+  color: #fff;
+}
+
+.appMain {
+  background-color: #102541;
+  grid-area: main;
+  height: calc(100vh - 120px);
+  overflow: auto;
+}
