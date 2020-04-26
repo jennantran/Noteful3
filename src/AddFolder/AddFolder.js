@@ -29,7 +29,7 @@ export default class AddFolder extends Component {
     handleSubmit(event){
         event.preventDefault();
         const newFolder = {
-            name: this.state.name
+            name: this.state.name.value
         };
         const baseUrl = 'http://localhost:9090';
         const foldersEndPoint = '/folders';
