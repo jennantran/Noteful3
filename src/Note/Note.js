@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import NoteContext from '../noteContext'
 import './Note.css'
+import PropTypes from 'prop-types';
 
 export default class Note extends React.Component {
 
@@ -25,7 +26,8 @@ export default class Note extends React.Component {
                 return res.json()
             })
             .then(() => {
-                this.context.deleteNote(noteId)
+                this.context.deleteNote(noteId);
+                this.props.history.push("/");
 
             })
             .catch(error => {
@@ -54,3 +56,8 @@ export default class Note extends React.Component {
         );
     }
 }
+
+Note.propTypes = {
+    name: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired
+};

@@ -121,6 +121,7 @@ export default class AddNote extends Component {
                     <div className = "nameInput">
                         <label>Name</label>
                         <input
+                            required
                             type="text"   
                             id="name"
                             placeholder="name"
@@ -131,6 +132,7 @@ export default class AddNote extends Component {
                     <div className="contentInput">
                         <label>Content</label>
                         <input
+                            required
                             type="text"   
                             name="content"   
                             id="content"

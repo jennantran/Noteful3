@@ -40,6 +40,8 @@ class App extends Component {
         return Promise.all([notesResolve.json(), foldersResolve.json()]);
       })
       .then(([notes, folders]) => {
+        console.log(folders);
+        console.log(notes);
         this.setState({ notes, folders });
       })
       .catch(error => {

@@ -31,8 +31,11 @@ export default class AddFolder extends Component {
         const newFolder = {
             name: this.state.name.value
         };
+
+
         const baseUrl = 'http://localhost:9090';
         const foldersEndPoint = '/folders';
+
         fetch(baseUrl + foldersEndPoint, {
             method: "POST",
             headers: {
@@ -72,6 +75,7 @@ export default class AddFolder extends Component {
                     <div className="nameInput">
                         <label>Name</label>
                         <input
+                            required
                             type="text"   
                             name="name"   
                             id="name"
