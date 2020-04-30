@@ -10,6 +10,11 @@ export default class NotePageMain extends React.Component {
       params: {}
     }
   }  
+
+  onDelete = () => {
+    this.props.history.push('/')
+  }
+
   static contextType = NoteContext;
   render(){
       const { notes=[] } = this.context;
@@ -22,6 +27,7 @@ export default class NotePageMain extends React.Component {
           <Note
             id={note.id}
             name={note.name}
+            onChange={this.onDelete}
           />
           <div className='NotePageMainContent'>
             {note.content.split(/\n \r|\n/).map((para, i) =>
