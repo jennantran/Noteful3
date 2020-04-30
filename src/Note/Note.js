@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import NoteContext from '../noteContext'
 import './Note.css'
 import PropTypes from 'prop-types';
+import { format } from 'date-fns';
 
 export default class Note extends React.Component {
 
@@ -36,7 +37,7 @@ export default class Note extends React.Component {
         }
         
     render(){
-        const {name, id} = this.props
+        const {name, id, modified} = this.props
         return(
             <div className="note">
                 <h2 className="noteTitle">
@@ -51,6 +52,15 @@ export default class Note extends React.Component {
                 >
                     Delete
                 </button>
+                <div className='Note__dates'>
+                    <div className='Note__dates-modified'>
+                    Modified
+                    {' '}
+                    <span className='Date'>
+                        {format(modified, 'Do MMM YYYY')}
+                    </span>
+                    </div>
+                </div>
             </div>
             
         );
