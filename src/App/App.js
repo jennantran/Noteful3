@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import './App.css';
 import NoteListNav from '../NoteListNav/NoteListNav'
 import NotePageNav from '../NotePageNav/NotePageNav'
@@ -87,7 +87,7 @@ class App extends Component {
               <Route path="/AddNote" component={NotePageNav} />
             </nav>
             <header className="appHeader">
-              <h1>Noteful</h1>
+              <Link to="/">Noteful</Link>{' '}
             </header>
             <main className="appMain">
               <Route exact path="/" component={NoteListMain} />
