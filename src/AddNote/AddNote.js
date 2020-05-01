@@ -20,9 +20,13 @@ export default class AddNote extends Component {
             folderId: {
                 value:"b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1",
                 touched:  false 
-        }     
+            },
+            modified:{
+                value: "",
+                touched: false
+            }
+        }
     }
-}
     updateName(name){
         console.log({name});
         this.setState({
@@ -43,7 +47,7 @@ export default class AddNote extends Component {
         });
     }
 
-    updateFolder = (folderId, value) => {
+    updateFolder = (folderId) => {
         console.log(folderId);
         this.setState({
             folderId: {
@@ -52,6 +56,14 @@ export default class AddNote extends Component {
             }
         });
     }
+    // updateModified = (value) => {
+    //     console.log(value);
+    //     this.setState({
+    //         modified:{
+    //             value: value
+    //         }
+    //     })
+    // }
      handleSubmit(event){
          console.log("handlesubmit");
          event.preventDefault();
@@ -59,7 +71,8 @@ export default class AddNote extends Component {
          const newNote = {
             name: this.state.name.value,
             content: this.state.content.value,
-            folderId: this.state.folderId.value
+            folderId: this.state.folderId.value,
+            modified: new Date(),
        };
         console.log(newNote);
         const baseUrl = 'http://localhost:9090';
@@ -80,7 +93,10 @@ export default class AddNote extends Component {
         })
         .then((data) => {
             this.context.addNote(data);
+            console.log(data);
             this.props.history.push("/");
+      
+        
         })
         .catch(error => {
             console.error(error);
