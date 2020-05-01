@@ -23,9 +23,6 @@ class App extends Component {
     const notesEndPoint = '/notes';
     const foldersEndPoint = '/folders';
 
-    console.log(baseUrl + notesEndPoint);
-    console.log(baseUrl + foldersEndPoint);
-
     Promise.all([
       fetch(baseUrl + notesEndPoint),
       fetch(baseUrl + foldersEndPoint)
@@ -40,8 +37,6 @@ class App extends Component {
         return Promise.all([notesResolve.json(), foldersResolve.json()]);
       })
       .then(([notes, folders]) => {
-        console.log(folders);
-        console.log(notes);
         this.setState({ notes, folders });
       })
       .catch(error => {

@@ -29,7 +29,6 @@ export default class Note extends React.Component {
             .then(() => {
                 this.context.deleteNote(noteId);
                 this.props.onChange();
-
             })
             .catch(error => {
                 console.error({error})
@@ -37,8 +36,8 @@ export default class Note extends React.Component {
         }
         
     render(){
-        const {name, id, modified} = this.props
-        console.log(modified);
+        const {name, id, modified} = this.props;
+        console.log(new Date(modified));
         return(
             <div className="note">
                 <h2 className="noteTitle">
@@ -70,5 +69,5 @@ export default class Note extends React.Component {
 
 Note.propTypes = {
     name: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired
+    id: PropTypes.string.isRequired,
 };
