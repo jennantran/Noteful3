@@ -14,11 +14,17 @@ export default class NoteListMain extends React.Component {
     }
 
     static contextType = NoteContext;
+    onDelete = () => {
+        this.props.history.push('/')
+        console.log("On delete");
+      }
 
     render(){
+        console.log("Note list main", this.context.notes);
         const { folder_id } = this.props.match.params;
         const { notes =[] } = this.context;
         const notesForFolder = getNotesForFolder(notes,folder_id);
+
         return (
             <section className="NoteListMain">
                 <ul>
@@ -27,7 +33,8 @@ export default class NoteListMain extends React.Component {
                             <Note
                                 id={note.id}
                                 name={note.name} 
-                                modified={note.modified}   
+                                modified={note.modified}
+                                onDelete={this.onDelete}   
                             />
                         </li>
                         )}

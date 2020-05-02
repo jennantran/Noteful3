@@ -4,6 +4,7 @@ import NoteContext from '../noteContext'
 import './Note.css'
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
+import { withRouter } from 'react-router-dom'
 
 export default class Note extends React.Component {
 
@@ -27,8 +28,9 @@ export default class Note extends React.Component {
                 return res.json()
             })
             .then(() => {
+                console.log(this.props);
+                this.props.onDelete();
                 this.context.deleteNote(noteId);
-                this.props.onChange();
                 console.log(this.props);
             })
             .catch(error => {
@@ -38,7 +40,9 @@ export default class Note extends React.Component {
         
     render(){
         const {name, id, modified} = this.props;
-        console.log(new Date(modified));
+        console.log(modified);
+        // const modified = {(modified) ? format(modified, 'dd-MM-yyyy') : ''};
+
         return(
             <div className="note">
                 <h2 className="noteTitle">
@@ -55,10 +59,8 @@ export default class Note extends React.Component {
                 </button>
                 <div className='Note__dates'>
                     <div className='Note__dates-modified'>
-                    Modified
-                    {' '}
                     <span className='Date'>
-                        {format(new Date(modified), 'dd-MM-yyyy')}
+                    {(modified) ? format(new Date(modified), 'dd-MM-yyyy') : ''}
                     </span>
                     </div>
                 </div>
@@ -72,3 +74,4 @@ Note.propTypes = {
     name: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
 };
+

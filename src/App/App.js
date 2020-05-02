@@ -44,9 +44,14 @@ class App extends Component {
       });
   }
   handleDeleteNote = noteId => {
+    console.log("handle delete note");
+    console.log(noteId);
+    console.log(this.state.notes);
     this.setState({
       notes: this.state.notes.filter(note => note.id !== noteId)
     });
+    // this.props.history.push('/');
+    console.log(this.state.notes);
   }
 
   addFolder = name => {
@@ -69,6 +74,7 @@ class App extends Component {
       addFolder: this.addFolder,
       addNote: this.addNote
     }
+    console.log(this.state.notes);
 
     return (
       <NoteError>
