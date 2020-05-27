@@ -29,7 +29,7 @@ export default class AddFolder extends Component {
     handleSubmit(event){
         event.preventDefault();
         const newFolder = {
-            name: this.state.name.value
+            folder_name: this.state.name.value
         };
 
 
@@ -43,7 +43,7 @@ export default class AddFolder extends Component {
             },
             body: JSON.stringify(newFolder)
         })
-        .then(res => {
+        .then((res) => {
             if(!res.ok){
                 return res.json().then(e => Promise.reject(e))
             }
