@@ -18,7 +18,7 @@ export default class AddNote extends Component {
                 touched: false
             },
             folderId: {
-                value:"b0715efe-ffaf-11e8-8eb2-f2801f1b9fd1",
+                value: 1,
                 touched:  false 
             },
             modified:{
@@ -48,6 +48,7 @@ export default class AddNote extends Component {
     }
 
     updateFolder = (folderId) => {
+
         console.log(folderId);
         this.setState({
             folderId: {
@@ -56,27 +57,20 @@ export default class AddNote extends Component {
             }
         });
     }
-    // updateModified = (value) => {
-    //     console.log(value);
-    //     this.setState({
-    //         modified:{
-    //             value: value
-    //         }
-    //     })
-    // }
+  
      handleSubmit(event){
          console.log("handlesubmit");
          event.preventDefault();
  
          const newNote = {
-            name: this.state.name.value,
+            note_name: this.state.name.value,
             content: this.state.content.value,
-            folderId: this.state.folderId.value,
+            folder_id: this.state.folderId.value,
             modified: new Date(),
        };
         console.log(newNote);
-        const baseUrl = 'http://localhost:9090';
-        const NoteEndPoint = '/notes';
+        const baseUrl = 'http://localhost:8000';
+        const NoteEndPoint = '/api/notes';
 
         fetch(baseUrl + NoteEndPoint, {
             method: "POST",
@@ -123,11 +117,10 @@ export default class AddNote extends Component {
     render(){
         const nameError = this.validateName();
         const contentError = this.validateContent();
-        console.log(this.context);
         const options = this.context.folders.map((folder) => {
             return(
                 <option key={folder.id} value={folder.id}>
-                    {folder.name}
+                    {folder.folder_name}
                 </option>
             )
         })

@@ -19,9 +19,9 @@ class App extends Component {
   };
 
   componentDidMount() {
-    const baseUrl = 'http://localhost:9090';
-    const notesEndPoint = '/notes';
-    const foldersEndPoint = '/folders';
+    const baseUrl = 'http://localhost:8000';
+    const notesEndPoint = '/api/notes';
+    const foldersEndPoint = '/api/folders';
 
     Promise.all([
       fetch(baseUrl + notesEndPoint),
@@ -50,13 +50,11 @@ class App extends Component {
     this.setState({
       notes: this.state.notes.filter(note => note.id !== noteId)
     });
-    // this.props.history.push('/');
-    console.log(this.state.notes);
   }
 
-  addFolder = name => {
+  addFolder = folder_name => {
     this.setState({
-      folders: [...this.state.folders, name]
+      folders: [...this.state.folders, folder_name]
     })
   }
 
@@ -74,8 +72,7 @@ class App extends Component {
       addFolder: this.addFolder,
       addNote: this.addNote
     }
-    console.log(this.state.notes);
-
+  
     return (
       <NoteError>
         <noteContext.Provider value={value}>

@@ -20,7 +20,14 @@ export default class NotePageNav extends React.Component {
         const { notes, folders, } = this.context
         const { note_id } = this.props.match.params
         const note = findNote(notes, note_id) || {}
-        const folder = findFolder(folders, note.folderId)
+        const folder = findFolder(folders, note.folder_id)
+
+        console.log(notes);
+        console.log(folders);
+        console.log(note_id)
+        console.log(folder)
+        console.log(note)
+        
         return (
             <div className="NotePageNav">
                 <Button 
@@ -30,7 +37,7 @@ export default class NotePageNav extends React.Component {
                 </Button>
                 {folder &&(
                 <h3 className="folderName">
-                    {folder.name}
+                    {folder.folder_name}
                 </h3>
                 )}
             </div>

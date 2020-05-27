@@ -4,7 +4,7 @@ import NoteContext from '../noteContext'
 import './Note.css'
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
-import { withRouter } from 'react-router-dom'
+
 
 export default class Note extends React.Component {
 
@@ -13,7 +13,9 @@ export default class Note extends React.Component {
         handleDelete = e => {
             e.preventDefault();
             const noteId = this.props.id;
-            const baseUrl = 'http://localhost:9090/notes/';
+            const baseUrl = 'http://localhost:8000/api/notes';
+            
+            console.log(noteId)
             
             fetch(`${baseUrl}/${noteId}`, {
                 method: 'DELETE',
@@ -25,7 +27,8 @@ export default class Note extends React.Component {
                 if(!res.ok){
                     return res.json().then(e => Promise.reject(e))
                 }
-                return res.json()
+                console.log(res);
+                return res
             })
             .then(() => {
                 console.log(this.props);
@@ -40,7 +43,9 @@ export default class Note extends React.Component {
         
     render(){
         const {name, id, modified} = this.props;
-        console.log(modified);
+        console.log("name", name);
+        console.log("id", id);
+        console.log("modified",modified)
         // const modified = {(modified) ? format(modified, 'dd-MM-yyyy') : ''};
 
         return(

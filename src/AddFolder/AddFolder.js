@@ -33,8 +33,8 @@ export default class AddFolder extends Component {
         };
 
 
-        const baseUrl = 'http://localhost:9090';
-        const foldersEndPoint = '/folders';
+        const baseUrl = 'http://localhost:8000';
+        const foldersEndPoint = '/api/folders';
 
         fetch(baseUrl + foldersEndPoint, {
             method: "POST",
