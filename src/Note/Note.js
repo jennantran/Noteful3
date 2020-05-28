@@ -43,11 +43,8 @@ export default class Note extends React.Component {
         
     render(){
         const {name, id, modified} = this.props;
-        console.log("name", name);
-        console.log("id", id);
-        console.log("modified",modified)
         // const modified = {(modified) ? format(modified, 'dd-MM-yyyy') : ''};
-
+        const link = '/note/' + id;
         return(
             <div className="note">
                 <h2 className="noteTitle">
