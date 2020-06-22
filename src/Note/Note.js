@@ -4,6 +4,7 @@ import NoteContext from '../noteContext'
 import './Note.css'
 import PropTypes from 'prop-types';
 import { format } from 'date-fns';
+import API_ENDPOINT from '../config';
 
 
 export default class Note extends React.Component {
@@ -13,11 +14,12 @@ export default class Note extends React.Component {
         handleDelete = e => {
             e.preventDefault();
             const noteId = this.props.id;
-            const baseUrl = 'http://localhost:8000/api/notes';
+            // const baseUrl = `${API_ENDPOINT}/api/notes`;
+            const baseUrl = API_ENDPOINT.API_ENDPOINT;
             
             console.log(noteId)
             
-            fetch(`${baseUrl}/${noteId}`, {
+            fetch(`${baseUrl}/api/notes/${noteId}`, {
                 method: 'DELETE',
                 headers:{
                     'content-type': 'application/json'
@@ -29,7 +31,7 @@ export default class Note extends React.Component {
                 }
                 console.log(res);
                 return res
-            })
+                })
             .then(() => {
                 console.log(this.props);
                 this.props.onDelete();

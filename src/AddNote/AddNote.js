@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import NoteContext from '../noteContext'
 import './AddNote.css'
 import ValidationError from '../ValidationError';
+import API_ENDPOINT from '../config';
 
 export default class AddNote extends Component {
     static contextType = NoteContext;
@@ -69,10 +70,11 @@ export default class AddNote extends Component {
             modified: new Date(),
        };
         console.log(newNote);
-        const baseUrl = 'http://localhost:8000';
+        // const baseUrl = 'http://localhost:8000';
         const NoteEndPoint = '/api/notes';
+        const baseUrl = API_ENDPOINT.API_ENDPOINT;
 
-        fetch(baseUrl + NoteEndPoint, {
+        fetch(`${baseUrl}/api/notes`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

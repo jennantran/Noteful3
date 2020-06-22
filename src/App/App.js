@@ -9,6 +9,7 @@ import AddFolder from '../AddFolder/AddFolder';
 import AddNote from '../AddNote/AddNote';
 import NotePageMain from '../NotePageMain/NotePageMain';
 import NoteError from '../NoteError';
+import  API_ENDPOINT  from '../config';
 
 class App extends Component {
   state = {
@@ -19,13 +20,14 @@ class App extends Component {
   };
 
   componentDidMount() {
-    const baseUrl = 'http://localhost:8000';
+    // const baseUrl = 'http://localhost:8000';
     const notesEndPoint = '/api/notes';
     const foldersEndPoint = '/api/folders';
-
+    const baseUrl = API_ENDPOINT.API_ENDPOINT;
+  
     Promise.all([
-      fetch(baseUrl + notesEndPoint),
-      fetch(baseUrl + foldersEndPoint)
+      fetch(`${baseUrl}/api/notes`),
+      fetch(`${baseUrl}/api/folders`)
     ])
       .then(([notesResolve, foldersResolve]) => {
         if (!notesResolve.ok) {

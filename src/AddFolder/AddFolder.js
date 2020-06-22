@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import NoteContext from '../noteContext'
 import './AddFolder.css'
 import ValidationError from '../ValidationError';
+import API_ENDPOINT from '../config';
 
 export default class AddFolder extends Component {
 
@@ -32,11 +33,11 @@ export default class AddFolder extends Component {
             folder_name: this.state.name.value
         };
 
-
-        const baseUrl = 'http://localhost:8000';
+        // const baseUrl = 'http://localhost:8000';
         const foldersEndPoint = '/api/folders';
+        const baseUrl = API_ENDPOINT.API_ENDPOINT;
 
-        fetch(baseUrl + foldersEndPoint, {
+        fetch(`${baseUrl}/api/folders`, {
             method: "POST",
             headers: {
                 "content-type": "application/json",
